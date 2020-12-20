@@ -36,6 +36,7 @@ again.addEventListener("click", function () {
   score = 20;
   scoreStr.innerText = 20;
   secretNumber.innerText = "?";
+  message.innerText = "Start guessing...";
   input.value = "";
   randomNumber = Math.floor(Math.random() * 20) + 1;
 });
