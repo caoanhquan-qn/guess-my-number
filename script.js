@@ -12,17 +12,18 @@ check.addEventListener("click", function () {
   checkedNumber();
 });
 function checkedNumber() {
-  if (Number(input.value) === 0) {
+  let inputNumber = Number(input.value);
+  if (!inputNumber) {
     message.innerText = "⛔️ No number!";
-  } else if (Number(input.value) > randomNumber) {
-    message.innerText = "↗︎ Too high!";
+  } else if (inputNumber > randomNumber) {
+    message.innerText = "📈 Too high!";
     score--;
     scoreStr.innerText = score;
-  } else if (Number(input.value) < randomNumber) {
-    message.innerText = "⬊ Too low!";
+  } else if (inputNumber < randomNumber) {
+    message.innerText = "📉 Too low!";
     score--;
     scoreStr.innerText = score;
-  } else if (Number(input.value) === randomNumber) {
+  } else if (inputNumber === randomNumber) {
     document.querySelector("body").style.backgroundColor = "green";
     message.innerText = "🎉 Correct Number!";
     secretNumber.innerText = randomNumber;
