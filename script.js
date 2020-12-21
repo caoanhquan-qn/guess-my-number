@@ -24,7 +24,6 @@ function checkedNumber() {
   } else if (inputNumber < 1 || inputNumber > 20 || input.value === "0") {
     alert("PLEASE INPUT NUMBER FROM 1 TO 20");
     input.value = "";
-    displayMessage("Start guessing...");
   } else if (inputNumber !== randomNumber) {
     displayMessage(inputNumber > randomNumber ? "📈 Too high!" : "📉 Too low!");
     initialScore--;
