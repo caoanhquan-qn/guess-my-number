@@ -13,8 +13,10 @@ check.addEventListener("click", function () {
 });
 function checkedNumber() {
   let inputNumber = Number(input.value);
-  if (!inputNumber) {
+  if (input.value === "") {
     message.innerText = "⛔️ No number!";
+  } else if (inputNumber < 1 || inputNumber > 20 || input.value === "0") {
+    alert("PLEASE INPUT NUMBER FROM 1 TO 20");
   } else if (inputNumber > randomNumber) {
     message.innerText = "📈 Too high!";
     initialScore--;
@@ -27,11 +29,9 @@ function checkedNumber() {
     document.querySelector("body").style.backgroundColor = "#60b347";
     message.innerText = "🎉 Correct Number!";
     secretNumber.innerText = randomNumber;
+    secretNumber.style.width = "30rem";
     if (initialScore > Number(result.innerText)) {
       result.innerText = initialScore;
-    }
-    if (randomNumber >= 10 && randomNumber <= 20) {
-      secretNumber.style.width = "30rem";
     }
   }
   if (initialScore === 0) {
