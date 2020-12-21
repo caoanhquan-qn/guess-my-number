@@ -24,11 +24,14 @@ function checkedNumber() {
     initialScore--;
     score.innerText = initialScore;
   } else if (inputNumber === randomNumber) {
-    document.querySelector("body").style.backgroundColor = "green";
+    document.querySelector("body").style.backgroundColor = "#60b347";
     message.innerText = "🎉 Correct Number!";
     secretNumber.innerText = randomNumber;
     if (initialScore > Number(result.innerText)) {
       result.innerText = initialScore;
+    }
+    if (randomNumber >= 10 && randomNumber <= 20) {
+      secretNumber.style.width = "30rem";
     }
   }
   if (initialScore === 0) {
@@ -44,5 +47,6 @@ again.addEventListener("click", function () {
   message.innerText = "Start guessing...";
   input.value = "";
   check.disabled = false;
+  secretNumber.style.width = "15rem";
   randomNumber = Math.floor(Math.random() * 20) + 1;
 });
