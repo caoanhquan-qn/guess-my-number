@@ -14,6 +14,9 @@ check.addEventListener("click", function () {
 const displayMessage = function (str) {
   message.innerText = str;
 };
+const bodyColor = function (color) {
+  document.querySelector("body").style.backgroundColor = color;
+};
 function checkedNumber() {
   let inputNumber = Number(input.value);
   if (input.value === "") {
@@ -27,7 +30,7 @@ function checkedNumber() {
     initialScore--;
     score.innerText = initialScore;
   } else if (inputNumber === randomNumber) {
-    document.querySelector("body").style.backgroundColor = "#60b347";
+    bodyColor("#60b347");
     displayMessage("🎉 Correct Number!");
     secretNumber.innerText = randomNumber;
     secretNumber.style.width = "30rem";
@@ -38,10 +41,11 @@ function checkedNumber() {
   if (initialScore === 0) {
     displayMessage("😟 You lost the game!");
     check.disabled = true;
+    bodyColor("#ff4d4d");
   }
 }
 again.addEventListener("click", function () {
-  document.querySelector("body").style.backgroundColor = "#222";
+  bodyColor("#222");
   initialScore = 20;
   score.innerText = 20;
   secretNumber.innerText = "?";
