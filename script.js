@@ -17,12 +17,11 @@ function checkedNumber() {
     message.innerText = "⛔️ No number!";
   } else if (inputNumber < 1 || inputNumber > 20 || input.value === "0") {
     alert("PLEASE INPUT NUMBER FROM 1 TO 20");
-  } else if (inputNumber > randomNumber) {
-    message.innerText = "📈 Too high!";
-    initialScore--;
-    score.innerText = initialScore;
-  } else if (inputNumber < randomNumber) {
-    message.innerText = "📉 Too low!";
+    input.value = "";
+    message.innerText = "Start guessing...";
+  } else if (inputNumber !== randomNumber) {
+    message.innerText =
+      inputNumber > randomNumber ? "📈 Too high!" : "📉 Too low!";
     initialScore--;
     score.innerText = initialScore;
   } else if (inputNumber === randomNumber) {
